@@ -30,71 +30,71 @@ training_data = np.load('Agnes_Lawrence_Pelton_pictures.npy')
 
 
 def build_discriminator(image_shape):
-model = Sequential()
+	model = Sequential()
 
-model.add(Conv2D(32, kernel_size=3, strides=2,
-input_shape=image_shape, padding='same'))
-model.add(LeakyReLU(alpha=0.2))
-model.add(Dropout(0.25))
-model.add(Conv2D(64, kernel_size=3, strides=2, padding='same'))
-model.add(ZeroPadding2D(padding=((0, 1), (0, 1))))
-model.add(BatchNormalization(momentum=0.8))
-model.add(LeakyReLU(alpha=0.2))
-model.add(Dropout(0.25))
-model.add(Conv2D(128, kernel_size=3, strides=2, padding='same'))
-model.add(BatchNormalization(momentum=0.8))
-model.add(LeakyReLU(alpha=0.2))
-model.add(Dropout(0.25))
-model.add(Conv2D(256, kernel_size=3, strides=1, padding='same'))
-model.add(BatchNormalization(momentum=0.8))
-model.add(LeakyReLU(alpha=0.2))
-model.add(Dropout(0.25))
-model.add(Conv2D(512, kernel_size=3, strides=1, padding='same'))
-model.add(BatchNormalization(momentum=0.8))
-model.add(LeakyReLU(alpha=0.2))
-model.add(Dropout(0.25))
-model.add(Flatten())
-model.add(Dense(1, activation='sigmoid'))
+	model.add(Conv2D(32, kernel_size=3, strides=2,
+		input_shape=image_shape, padding='same'))
+	model.add(LeakyReLU(alpha=0.2))
+	model.add(Dropout(0.25))
+	model.add(Conv2D(64, kernel_size=3, strides=2, padding='same'))
+	model.add(ZeroPadding2D(padding=((0, 1), (0, 1))))
+	model.add(BatchNormalization(momentum=0.8))
+	model.add(LeakyReLU(alpha=0.2))
+	model.add(Dropout(0.25))
+	model.add(Conv2D(128, kernel_size=3, strides=2, padding='same'))
+	model.add(BatchNormalization(momentum=0.8))
+	model.add(LeakyReLU(alpha=0.2))
+	model.add(Dropout(0.25))
+	model.add(Conv2D(256, kernel_size=3, strides=1, padding='same'))
+	model.add(BatchNormalization(momentum=0.8))
+	model.add(LeakyReLU(alpha=0.2))
+	model.add(Dropout(0.25))
+	model.add(Conv2D(512, kernel_size=3, strides=1, padding='same'))
+	model.add(BatchNormalization(momentum=0.8))
+	model.add(LeakyReLU(alpha=0.2))
+	model.add(Dropout(0.25))
+	model.add(Flatten())
+	model.add(Dense(1, activation='sigmoid'))
 
-model.summary()
+	model.summary()
 
-input_image = Input(shape=image_shape)
-validity = model(input_image)
+	input_image = Input(shape=image_shape)
+	validity = model(input_image)
 
-return Model(input_image, validity)
+	return Model(input_image, validity)
 
 
 
 
 def build_generator(noise_size, channels):
-model = Sequential()
+	model = Sequential()
 
-model.add(Dense(4 * 4 * 256, activation='relu',input_dim=noise_size))
-model.add(Reshape((4, 4, 256)))
-model.add(UpSampling2D())
-model.add(Conv2D(256, kernel_size=3, padding='same'))
-model.add(BatchNormalization(momentum=0.8))
-model.add(Activation('relu'))
-model.add(UpSampling2D())
-model.add(Conv2D(256, kernel_size=3, padding='same'))
-model.add(BatchNormalization(momentum=0.8))
-model.add(Activation('relu'))
-
-for i in range(GENERATE_RES):
+	model.add(Dense(4 * 4 * 256, activation='relu',input_dim=noise_size))
+	model.add(Reshape((4, 4, 256)))
+	model.add(UpSampling2D())
+	model.add(Conv2D(256, kernel_size=3, padding='same'))
+	model.add(BatchNormalization(momentum=0.8))
+	model.add(Activation('relu'))
 	model.add(UpSampling2D())
 	model.add(Conv2D(256, kernel_size=3, padding='same'))
 	model.add(BatchNormalization(momentum=0.8))
 	model.add(Activation('relu'))
 
-model.add(Conv2D(channels, kernel_size=3, padding='same'))
-model.add(Activation('tanh'))
+	for i in range(GENERATE_RES):
+		model.add(UpSampling2D())
+		model.add(Conv2D(256, kernel_size=3, padding='same'))
+		model.add(BatchNormalization(momentum=0.8))
+		model.add(Activation('relu'))
 
-model.summary()
+	model.add(Conv2D(channels, kernel_size=3, padding='same'))
+	model.add(Activation('tanh'))
 
-input = Input(shape=(noise_size,))
-generated_image = model(input)
+	model.summary()
 
-return Model(input, generated_image)
+	input = Input(shape=(noise_size,))
+	generated_image = model(input)
+
+	return Model(input, generated_image)
 
 
 
