@@ -24,7 +24,7 @@ GENERATE_RES = 3
 IMAGE_SIZE = 128 # rows/cols
 IMAGE_CHANNELS = 3
 
-training_data = np.load('Agnes_Lawrence_Pelton_pictures.npy')
+training_data = np.load('henri_matisse_abstract_expressionism.npy')
 
 
 
