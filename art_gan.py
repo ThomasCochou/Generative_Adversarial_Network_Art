@@ -19,7 +19,7 @@ SAVE_FREQ = 100
 NOISE_SIZE = 100
 # Configuration
 EPOCHS = 10000 # number of iterations
-BATCH_SIZE = 28
+BATCH_SIZE = 25
 GENERATE_RES = 3
 IMAGE_SIZE = 128 # rows/cols
 IMAGE_CHANNELS = 3
