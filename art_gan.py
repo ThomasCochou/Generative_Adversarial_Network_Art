@@ -9,6 +9,7 @@ from tensorflow.keras.optimizers import Adam
 import numpy as np
 from PIL import Image
 import os
+import statistics
 
 # Preview image Frame (output images eachs number of iterations)
 PREVIEW_ROWS = 4
@@ -168,6 +169,9 @@ y_fake = np.zeros((BATCH_SIZE, 1))
 # create a constant noise to inject in the generator to get an output for the saving image function
 fixed_noise = np.random.normal(0, 1, (PREVIEW_ROWS * PREVIEW_COLS, NOISE_SIZE))
 
+discriminator_accuracy_list = []
+generator_accuracy_list = []
+
 cnt = 1
 for epoch in range(EPOCHS):
 	# get some random real data
@@ -189,9 +193,17 @@ for epoch in range(EPOCHS):
 	# train on batch the generator
 	generator_metric = combined.train_on_batch(noise, y_real)
 
+	#means of all the epochs
+	discriminator_accuracy_list.append(100*discriminator_metric[1])
+	generator_accuracy_list.append(100*generator_metric[1])
+
+	mean_discriminator_accuracy = statistics.mean(discriminator_accuracy_list)
+	mean_generator_accuracy = statistics.mean(generator_accuracy_list)
+
+
 	# save output of the generator with random noise every SAVE_FREQ n epochs and display accuracy
 	if epoch % SAVE_FREQ == 0:
 		save_images(cnt, fixed_noise)
 		cnt += 1
-		print(f'{epoch} epoch, discriminator_metric[0]: {100*  discriminator_metric[0]}, generator_metric[0]: {100 * generator_metric[0]}')
+		print(f'Mean discriminator accuracy: {mean_discriminator_accuracy}, Mean generator accuracy: {mean_generator_accuracy}')
 		print(f'{epoch} epoch, Discriminator accuracy: {100*  discriminator_metric[1]}, Generator accuracy: {100 * generator_metric[1]}')
