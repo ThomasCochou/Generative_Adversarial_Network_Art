@@ -26,7 +26,7 @@ GENERATE_RES = 3 # add layers to the generator (generate resolution) -> default 
 IMAGE_SIZE = 128 # rows/cols
 IMAGE_CHANNELS = 3
 
-training_data = np.load('henri_matisse_abstract_expressionism.npy')
+training_data = np.load('wga.npy')
 
 def build_discriminator(image_shape):
 # The discriminator is a binary classifier. It needs to classify either the data is real or fake
