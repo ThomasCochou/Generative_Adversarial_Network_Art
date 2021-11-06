@@ -1,7 +1,6 @@
 # https://towardsdatascience.com/generating-modern-arts-using-generative-adversarial-network-gan-on-spell-39f67f83c7b4
 # https://www.wikiart.org/en/agnes-lawrence-pelton
 
-import tensorflow as tf
 from tensorflow import keras
 
 from tensorflow.keras.layers import Input, Reshape, Dropout, Dense, Flatten, BatchNormalization, Activation, ZeroPadding2D, Conv2D, UpSampling2D, LeakyReLU
@@ -12,8 +11,12 @@ from PIL import Image
 import os
 import statistics
 
-gpu_options = tf.compat.v1.GPUOptions(set_per_process_memory_fraction(0.333))
-sess = tf.Session(config=tf.compat.v1.ConfigProto(gpu_options=gpu_options))
+from tensorflow.compat.v1 import ConfigProto
+from tensorflow.compat.v1 import InteractiveSession
+
+config = ConfigProto()
+config.gpu_options.per_process_gpu_memory_fraction = 0.333
+session = InteractiveSession(config=config)
 
 # Preview image Frame (output images eachs number of iterations)
 PREVIEW_ROWS = 4
