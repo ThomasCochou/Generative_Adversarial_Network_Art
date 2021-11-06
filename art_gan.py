@@ -22,7 +22,7 @@ NOISE_SIZE = 100
 
 # Configuration
 EPOCHS = 10000 # number of iterations
-BATCH_SIZE = 3 # -> default 32
+BATCH_SIZE = 32 # -> default 32
 GENERATE_RES = 3 # add layers to the generator (generate resolution) -> default 3
 IMAGE_SIZE = 128 # rows/cols
 IMAGE_CHANNELS = 3
