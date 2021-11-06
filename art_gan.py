@@ -12,10 +12,8 @@ from PIL import Image
 import os
 import statistics
 
-# Assume that you have 12GB of GPU memory and want to allocate ~4GB:
-gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=0.333)
-
-sess = tf.Session(config=tf.ConfigProto(gpu_options=gpu_options))
+gpu_options = tf.compat.v1.GPUOptions(set_per_process_memory_fraction(0.333))
+sess = tf.Session(config=tf.compat.v1.ConfigProto(gpu_options=gpu_options))
 
 # Preview image Frame (output images eachs number of iterations)
 PREVIEW_ROWS = 4
