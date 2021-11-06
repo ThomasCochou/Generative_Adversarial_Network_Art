@@ -1,6 +1,7 @@
 # https://towardsdatascience.com/generating-modern-arts-using-generative-adversarial-network-gan-on-spell-39f67f83c7b4
 # https://www.wikiart.org/en/agnes-lawrence-pelton
 
+import tensorflow as tf
 from tensorflow import keras
 
 from tensorflow.keras.layers import Input, Reshape, Dropout, Dense, Flatten, BatchNormalization, Activation, ZeroPadding2D, Conv2D, UpSampling2D, LeakyReLU
@@ -10,6 +11,11 @@ import numpy as np
 from PIL import Image
 import os
 import statistics
+
+# Assume that you have 12GB of GPU memory and want to allocate ~4GB:
+gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=0.333)
+
+sess = tf.Session(config=tf.ConfigProto(gpu_options=gpu_options))
 
 # Preview image Frame (output images eachs number of iterations)
 PREVIEW_ROWS = 4
