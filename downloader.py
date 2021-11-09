@@ -9,7 +9,7 @@ ID_FORM = 7
 ID_TYPE = 8
 ID_TIMEFRAME = 10
 
-DATASET_MAXSIZE = 500	# /!\ MAX = 51459
+DATASET_MAXSIZE = 4000	# /!\ MAX = 51459
 output_path = "wga"
 
 form_feature = "painting"
@@ -41,12 +41,12 @@ for data in df.iterrows():
 	if i < DATASET_MAXSIZE: 
 		if  data[1][ID_FORM] == form_feature:
 			if data[1][ID_TYPE] == type_feature :
-				if data[1][ID_TIMEFRAME] == timeframe_feature :
-					url = data[1][ID_URL]
-					url = url.split("html")[0] + "art" + url.split("html")[1] + "jpg"
-					filename = url.split('/')[-1]
-					r = requests.get(url, allow_redirects=True)
-					open(output_path+"/"+filename, 'wb').write(r.content)
-					i = i + 1
+				# if data[1][ID_TIMEFRAME] == timeframe_feature :
+				url = data[1][ID_URL]
+				url = url.split("html")[0] + "art" + url.split("html")[1] + "jpg"
+				filename = url.split('/')[-1]
+				r = requests.get(url, allow_redirects=True)
+				open(output_path+"/"+filename, 'wb').write(r.content)
+				i = i + 1
 	else :
 		pass
