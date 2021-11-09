@@ -10,11 +10,11 @@ Generative adversarial networks (GANs) are algorithmic architectures that use tw
 1 - Get from the catalog of the Web Galery of Art (https://www.wga.hu/) some dataset
     We set some features and get the URLs with the `downloader.py` script
     
-    ``
+    ```Python
     form_feature = "painting"
     type_feature = "landscape"
     timeframe_feature = "1851-1900"
-    ``
+    ```
     
     This parameters gave us 462 pictures.
     
