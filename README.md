@@ -9,20 +9,26 @@ Generative adversarial networks (GANs) are algorithmic architectures that use tw
 
 1 - Get from the catalog of the Web Galery of Art (https://www.wga.hu/) some dataset
     We set some features and get the URLs with the `downloader.py` script
-    ``Python
+    
+    ```Python
     form_feature = "painting"
     type_feature = "landscape"
     timeframe_feature = "1851-1900"
-    ``
+    ```
+    
     This parameters gave us 462 pictures.
     
-    EXEMPLE HERE
+    ![alt text](https://github.com/ThomasCochou/Generative_Adversarial_Network_Art/blob/master/wga_exemple/1lands11.jpg?raw=true)
 
 2 - Resize the images from the dataset with `resizer.py` to 300x300
 
 3 - Train the models with `art_gan.py` and see the results each 100 epochs in the `output\` folder
 
-    EXEMPLE HERE
+    ![alt text](https://github.com/ThomasCochou/Generative_Adversarial_Network_Art/blob/master/output/trained-7.png?raw=true)
+    
+    ![alt text](https://github.com/ThomasCochou/Generative_Adversarial_Network_Art/blob/master/output/trained-12.png?raw=true)
+    
+    ![alt text](https://github.com/ThomasCochou/Generative_Adversarial_Network_Art/blob/master/output/trained-23.png?raw=true)
 
 
 # Problems 😢
