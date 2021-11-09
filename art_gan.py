@@ -1,5 +1,5 @@
 # https://towardsdatascience.com/generating-modern-arts-using-generative-adversarial-network-gan-on-spell-39f67f83c7b4
-# https://www.wikiart.org/en/agnes-lawrence-pelton
+# https://www.wga.hu/index1.html
 
 from tensorflow import keras
 
@@ -29,7 +29,7 @@ NOISE_SIZE = 100
 
 # Configuration
 EPOCHS = 10000 # number of iterations
-BATCH_SIZE = 20 # -> default 32
+BATCH_SIZE = 2 # -> default 32
 GENERATE_RES = 3 # add layers to the generator (generate resolution) -> default 3
 IMAGE_SIZE = 128 # rows/cols
 IMAGE_CHANNELS = 3
