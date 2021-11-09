@@ -34,7 +34,7 @@ Generative adversarial networks (GANs) are algorithmic architectures that use tw
    ![alt text](https://github.com/ThomasCochou/Generative_Adversarial_Network_Art/blob/master/output/trained-23.png?raw=true)
 
 
-## Problems 😢
+## Problems 🔧
 
 Looks like the accuracies of both models tends to 100% very fast, and the results are pretty weird. But in a way, it's ART.
 
