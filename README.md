@@ -19,9 +19,9 @@ Generative adversarial networks (GANs) are algorithmic architectures that use tw
    This parameters gave us 462 pictures.
 
    ![alt text](https://github.com/ThomasCochou/Generative_Adversarial_Network_Art/blob/master/wga_exemple/1lands11.jpg?raw=true)
-   <i align="center">
+   <p align="center"><i>
    Le golfe de Marseille vu de l’Estaque, par Paul Cézanne
-   </i>
+   </i></p>
 
 2 - Resize the images from the dataset with `resizer.py` to 300x300
 
