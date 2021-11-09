@@ -34,10 +34,24 @@ Generative adversarial networks (GANs) are algorithmic architectures that use tw
     
    ![alt text](https://github.com/ThomasCochou/Generative_Adversarial_Network_Art/blob/master/output/trained-23.png?raw=true)
 
+## Spell 💻
+
+It is possible to use Spell (https://spell.ml/) to compute the program online
+
+```
+spell login
+Spell upload wga.npy
+Spell run python art_gan.py -t cpu -m uploads/art_gan/wga.npy
+```
 
 ## Problems 🔧
 
-Looks like the accuracies of both models tends to 100% very fast, and the results are pretty weird. But in a way, it's ART.
+Looks like the accuracies of both models tends to 100% very fast, and the results are mysterious.
+
+```
+Mean discriminator accuracy: 99.3514311650107, Mean generator accuracy: 99.41208541846206
+10000 epoch, Discriminator accuracy: 100.0, Generator accuracy: 100.0
+```
 
 ## Ressources 📚
 https://towardsdatascience.com/generating-modern-arts-using-generative-adversarial-network-gan-on-spell-39f67f83c7b4
