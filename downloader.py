@@ -14,7 +14,6 @@ output_path = "wga"
 
 form_feature = "painting"
 type_feature = "landscape"
-timeframe_feature = "1851-1900"
 
 type_list = []
 form_list = []
@@ -41,7 +40,6 @@ for data in df.iterrows():
 	if i < DATASET_MAXSIZE: 
 		if  data[1][ID_FORM] == form_feature:
 			if data[1][ID_TYPE] == type_feature :
-				# if data[1][ID_TIMEFRAME] == timeframe_feature :
 				url = data[1][ID_URL]
 				url = url.split("html")[0] + "art" + url.split("html")[1] + "jpg"
 				filename = url.split('/')[-1]
