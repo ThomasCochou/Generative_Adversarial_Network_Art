@@ -14,10 +14,9 @@ Generative adversarial networks (GANs) are algorithmic architectures that use tw
    ```Python
    form_feature = "painting"
    type_feature = "landscape"
-   timeframe_feature = "1851-1900"
    ```
    
-   This parameters gave us 462 pictures.
+   This parameters above gave us almost 3000 pictures.
 
    ![alt text](https://github.com/ThomasCochou/Generative_Adversarial_Network_Art/blob/master/wga_exemple/1lands11.jpg?raw=true)
    <p align="center"><i>
@@ -41,7 +40,7 @@ It is possible to use Spell (https://spell.ml/) to compute the program online
 ```
 spell login
 Spell upload wga.npy
-Spell run python art_gan.py -t cpu -m uploads/art_gan/wga.npy
+Spell run python art_gan.py -t cpu -m uploads/art_gan_3000/wga.npy
 ```
 
 ## Problems 🔧
