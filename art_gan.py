@@ -25,7 +25,7 @@ PREVIEW_MARGIN = 4
 SAVE_FREQ = 100
 
 # Size vector to generate images from (generator input)
-NOISE_SIZE = 100
+NOISE_SIZE = 50
 
 # Configuration
 EPOCHS = 10000 # number of iterations
